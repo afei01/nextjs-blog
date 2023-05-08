@@ -25,7 +25,7 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>I'm chenfei,a full stack software engineer.</p>
+        <p>I'm chenfei, a full stack software engineer.</p>
         <p>My dream is running away from china!</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
