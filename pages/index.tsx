@@ -10,8 +10,8 @@ import { getSortedOtherPostsData } from "../lib/otherPosts";
 import utilStyles from "../styles/utils.module.css";
 
 export const getStaticProps: GetStaticProps = () => {
-  const allFEPostsData = getSortedFEPostsData() ?? [];
-  const allOtherPostsData = getSortedOtherPostsData() ?? [];
+  const allFEPostsData = getSortedFEPostsData();
+  const allOtherPostsData = getSortedOtherPostsData();
   return { props: { allFEPostsData, allOtherPostsData } };
 };
 
