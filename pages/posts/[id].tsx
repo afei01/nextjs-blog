@@ -1,4 +1,5 @@
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getAllFEPostIds, getFEPostData } from "../../lib/frontEndPosts";
+import { getAllOtherPostIds, getOtherPostData } from "../../lib/otherPosts";
 
 import Date from "../../components/Date";
 import Head from "next/head";
@@ -7,7 +8,7 @@ import React from "react";
 import utilStyles from "../../styles/utils.module.css";
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = [...getAllFEPostIds(), ...getAllOtherPostIds()];
   return {
     paths,
     fallback: false,
@@ -19,7 +20,11 @@ export async function getStaticProps({
 }: {
   params: { id: string };
 }) {
-  const postData = await getPostData(id);
+  const postData = await (getAllFEPostIds().find(
+    (item) => item.params.id === id
+  )
+    ? getFEPostData(id)
+    : getOtherPostData(id));
   return {
     props: { postData },
   };

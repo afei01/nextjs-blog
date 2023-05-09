@@ -5,9 +5,9 @@ import matter from "gray-matter";
 import path from "path";
 import { remark } from "remark";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const postsDirectory = path.join(process.cwd(), "FE_posts");
 
-export function getSortedPostsData() {
+export function getSortedFEPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
@@ -40,7 +40,7 @@ export function getSortedPostsData() {
   });
 }
 
-export function getAllPostIds() {
+export function getAllFEPostIds() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -52,7 +52,7 @@ export function getAllPostIds() {
   }));
 }
 
-export async function getPostData(id: string) {
+export async function getFEPostData(id: string) {
   // Read markdown file as string
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");

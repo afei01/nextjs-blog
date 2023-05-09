@@ -7,7 +7,7 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
 const name = "Fei";
-export const siteTitle = "My Sample Website";
+export const siteTitle = "Fei's FE Blog";
 
 export default function Layout({
   children,
@@ -22,7 +22,7 @@ export default function Layout({
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="a personal blog website about FE technology using Next.js"
         />
         <meta
           property="og:image"

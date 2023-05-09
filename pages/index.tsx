@@ -4,20 +4,22 @@ import Date from "../components/Date";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import { getSortedPostsData } from "../lib/posts";
-import styles from "../styles/Home.module.css";
-import { useRouter } from "next/router";
+import { getSortedFEPostsData } from "../lib/frontEndPosts";
+import { getSortedOtherPostsData } from "../lib/otherPosts";
 import utilStyles from "../styles/utils.module.css";
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return { props: { allPostsData } };
+  const allFEPostsData = getSortedFEPostsData() ?? [];
+  const allOtherPostsData = getSortedOtherPostsData() ?? [];
+  return { props: { allFEPostsData, allOtherPostsData } };
 }
 
 export default function Home({
-  allPostsData,
+  allFEPostsData,
+  allOtherPostsData,
 }: {
-  allPostsData: { id: string; date: string; title: string }[];
+  allFEPostsData: { id: string; date: string; title: string }[];
+  allOtherPostsData: { id: string; date: string; title: string }[];
 }) {
   return (
     <Layout home>
@@ -25,13 +27,27 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>I'm chenfei, a full stack software engineer.</p>
-        <p>My dream is running away from china!</p>
+        <p>
+          I'm chenfei, a full stack software engineer. My dream is running away
+          from china!
+        </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>My Front End Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allFEPostsData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+              <Link href={`/posts/${id}`}>{title}</Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
+          ))}
+        </ul>
+        <h2 className={utilStyles.headingLg}>Others</h2>
+        <ul className={utilStyles.list}>
+          {allOtherPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
