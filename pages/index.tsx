@@ -1,6 +1,7 @@
 import Layout, { siteTitle } from "../components/Layout";
 
 import Date from "../components/Date";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
@@ -8,11 +9,11 @@ import { getSortedFEPostsData } from "../lib/frontEndPosts";
 import { getSortedOtherPostsData } from "../lib/otherPosts";
 import utilStyles from "../styles/utils.module.css";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = () => {
   const allFEPostsData = getSortedFEPostsData() ?? [];
   const allOtherPostsData = getSortedOtherPostsData() ?? [];
   return { props: { allFEPostsData, allOtherPostsData } };
-}
+};
 
 export default function Home({
   allFEPostsData,

@@ -1,3 +1,4 @@
+import { GetStaticPaths, GetStaticProps } from "next";
 import { getAllFEPostIds, getFEPostData } from "../../lib/frontEndPosts";
 import { getAllOtherPostIds, getOtherPostData } from "../../lib/otherPosts";
 
@@ -7,19 +8,19 @@ import Layout from "../../components/Layout";
 import React from "react";
 import utilStyles from "../../styles/utils.module.css";
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [...getAllFEPostIds(), ...getAllOtherPostIds()];
   return {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({
+export const getStaticProps: GetStaticProps = async ({
   params: { id },
 }: {
   params: { id: string };
-}) {
+}) => {
   const postData = await (getAllFEPostIds().find(
     (item) => item.params.id === id
   )
@@ -28,7 +29,7 @@ export async function getStaticProps({
   return {
     props: { postData },
   };
-}
+};
 
 export default function Post({
   postData,
