@@ -1,26 +1,27 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import { getAllFEPostIds, getFEPostData } from "../../lib/frontEndPosts";
 import { getAllOtherPostIds, getOtherPostData } from "../../lib/otherPosts";
 
 import Date from "../../components/Date";
 import Head from "next/head";
+import { InferGetStaticPropsType } from "next";
 import Layout from "../../components/Layout";
 import React from "react";
 import utilStyles from "../../styles/utils.module.css";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export function getStaticPaths() {
   const paths = [...getAllFEPostIds(), ...getAllOtherPostIds()];
   return {
     paths,
     fallback: false,
   };
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({
+type InferGetStaticPathsType<T extends (args: any) => any> =
+  ReturnType<T>["paths"][0];
+
+export async function getStaticProps({
   params: { id },
-}: {
-  params: { id: string };
-}) => {
+}: InferGetStaticPathsType<typeof getStaticPaths>) {
   const postData = await (getAllFEPostIds().find(
     (item) => item.params.id === id
   )
@@ -29,13 +30,11 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: { postData },
   };
-};
+}
 
 export default function Post({
   postData,
-}: {
-  postData: { title: string; id: string; date: string; contentHtml: string };
-}) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Head>

@@ -20,7 +20,7 @@ export function getSortedFEPostsData() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents) as unknown as {
-      data: { date: string };
+      data: { title: string; date: string };
     };
 
     // Combine the data with the id
@@ -59,7 +59,7 @@ export async function getFEPostData(id: string) {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents) as unknown as {
-    data: { [key: string]: string }; // Record<string,string>
+    data: { title: string; date: string };
     content: Compatible;
   };
 
@@ -71,7 +71,6 @@ export async function getFEPostData(id: string) {
 
   // Combine the data with the id
   return {
-    id,
     contentHtml,
     ...matterResult.data,
   };
