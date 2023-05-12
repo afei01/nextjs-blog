@@ -16,12 +16,12 @@ export function getStaticPaths() {
   };
 }
 
-type InferGetStaticPathsType<T extends (args: any) => any> =
+type GetStaticPathsItemType<T extends (args: any) => any> =
   ReturnType<T>["paths"][0];
 
 export async function getStaticProps({
   params: { id },
-}: InferGetStaticPathsType<typeof getStaticPaths>) {
+}: GetStaticPathsItemType<typeof getStaticPaths>) {
   const postData = await (getAllFEPostIds().find(
     (item) => item.params.id === id
   )
