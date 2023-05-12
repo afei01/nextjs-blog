@@ -13,15 +13,24 @@ npm install -g @vue/cli
 
 再检测: vue -V
 
-参考<https://blog.csdn.net/cnoneo/article/details/100667098>
+参考 <https://blog.csdn.net/cnoneo/article/details/100667098>
+
+// 常见错误
 
 npm ERR! code EBADPLATFORM
+
 npm ERR! notsup Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
 npm ERR! notsup Valid OS: darwin
+
 npm ERR! notsup Valid Arch: any
+
 npm ERR! notsup Actual OS: win32
+
 npm ERR! notsup Actual Arch: x64
+
 npm ERR! A complete log of this run can be found in:
+
 npm ERR! C:\Users\LX\AppData\Roaming\npm-cache_logs\2021-04-21T09_34_26_950Z-debug.log
 
 遇到这样错误信息，先将生成的node_modules文件夹删除，再在命令后面加上 --force重新运行；
