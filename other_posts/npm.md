@@ -33,10 +33,7 @@ npm ERR! A complete log of this run can be found in:
 
 npm ERR! C:\Users\LX\AppData\Roaming\npm-cache_logs\2021-04-21T09_34_26_950Z-debug.log
 
-遇到这样错误信息，先将生成的node_modules文件夹删除，再在命令后面加上 --force重新运行；
-npm install --force
-如：npm install --force即可；
-如果不行，再反复执行上面的步骤。
+遇到这样错误信息，先将生成的node_modules文件夹删除，再在命令后面加上--force重新运行即npm install --force，如果不行，再反复执行上面的步骤。
 
 // 查询源
 npm config get registry
