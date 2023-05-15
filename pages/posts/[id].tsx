@@ -16,8 +16,7 @@ export function getStaticPaths() {
   };
 }
 
-type GetStaticPathsItemType<T extends (args: any) => any> =
-  ReturnType<T>["paths"][0];
+type GetStaticPathsItemType<T extends () => any> = ReturnType<T>["paths"][0];
 
 export async function getStaticProps({
   params: { id },
@@ -45,7 +44,10 @@ export default function Post({
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div
+          className={utilStyles.contentText}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
       </article>
     </Layout>
   );

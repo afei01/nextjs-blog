@@ -5,6 +5,11 @@
  **/
 const nextConfig = {
   /* config options here */
+
+  swcMinify: true,
+
+  // ssr and displayName are configured by default
+  styledComponents: true,
 };
 
 module.exports = nextConfig;

@@ -1,5 +1,5 @@
 ---
-title: "npm"
+title: "NPM"
 date: "2023-01-01"
 ---
 
