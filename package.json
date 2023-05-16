@@ -1,5 +1,13 @@
 {
+  "name": "my-blog",
+  "version": "0.0.1",
   "private": true,
+  "description": "my blog website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afei01/nextjs-blog.git"
+  },
+  "author": "fei <afei8906@gmail.com>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
