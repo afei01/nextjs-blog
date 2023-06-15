@@ -53,7 +53,7 @@ grep "password" /var/log/mysqld.log
 
 #### 5.执行命令，登录数据库。
 
-mysql -uroot -p
+mysql -u root -p
 
 #### 6.执行命令，修改MySQL数据库的初始密码。
 
@@ -91,7 +91,7 @@ tar -zxvf apache-tomcat-8.5.88.tar.gz
 
 #### 3.执行命令，修改Tomcat名字。
 
-mv apache-tomcat-8.5.88 /usr/local/Tomcat8.5
+mv apache-tomcat-8.5.88  /usr/local/Tomcat8.5
 
 #### 4.执行命令，为Tomcat授权。
 
