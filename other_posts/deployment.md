@@ -78,6 +78,30 @@ show databases;
 
 #### 10. 输入exit，退出数据库
 
+#### 11、linux下强制修改mysql登陆密码
+
+1. 设置mysql无密码登陆
+
+```c
+vim /etc/my.cnf
+找到[mysqld]段，使光标停留在段中任意处使用键盘输入skip-grant-tables并保存退出
+```
+
+2. 重启mysql `service mysqld restart`
+3. mysql -u -root进入mysql
+4. 设置密码，依次输入以下命令
+
+```c
+use mysql
+update mysql.user set authentication_string=password('<新密码>') where user='root';`
+flush privileges;
+exit;
+```
+
+5. 将最开始修改的my.cnf文件恢复，再重启mysql即可
+
+   
+
 # 安装Tomcat
 
 #### 1.执行命令，下载Tomcat压缩包
