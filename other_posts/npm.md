@@ -5,9 +5,9 @@ date: "2023-01-01"
 
 vue -V报错:
 
-输入新的源 npm config set registry <https://registry.npmmirror.com>
+输入新的源 `npm config set registry <https://registry.npmmirror.com>`
 
-npm install -g @vue/cli
+`npm install -g @vue/cli`
 
 关闭cmd 再打开cmd 输入:npm cache clean --force
 
@@ -36,13 +36,13 @@ npm ERR! C:\Users\LX\AppData\Roaming\npm-cache_logs\2021-04-21T09_34_26_950Z-deb
 遇到这样错误信息，先将生成的node_modules文件夹删除，再在命令后面加上--force重新运行即npm install --force，如果不行，再反复执行上面的步骤。
 
 // 查询源
-npm config get registry
+`npm config get registry`
 
 // 更换国内源
-npm config set registry <https://registry.npmmirror.com>
+`npm config set registry <https://registry.npmmirror.com>`
 
 // 恢复官方源
-npm config set registry <https://registry.npmjs.org>
+`npm config set registry <https://registry.npmjs.org>`
 
 // 删除注册表
-npm config delete registry
+`npm config delete registry`
