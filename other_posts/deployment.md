@@ -28,7 +28,7 @@ systemctl enable httpd
 
 #### 2.执行命令，使用yum安装JDK1.8
 
-`yum -y install java-1.8.0-openjdk*`
+`yum install -y java-1.8.0-openjdk*`
 
 #### 3.执行命令，查看是否安装成功
 
@@ -39,8 +39,8 @@ systemctl enable httpd
 #### 1.执行命令，下载并安装MySQL
 
 ```bash
-wget <http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm> &&
-yum -y install mysql57-community-release-el7-10.noarch.rpm &&
+wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm &&
+yum install -y mysql57-community-release-el7-10.noarch.rpm &&
 yum install -y mysql-community-server --nogpgcheck
 ```
 

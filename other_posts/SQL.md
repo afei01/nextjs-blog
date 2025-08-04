@@ -51,9 +51,9 @@ CREATE TABLE [IF NOT EXISTS] `table_name` (
   alter field:
 
   ```sql
-      ALTER TABLE name MODIFY field_name FIELD_PROPERTY;
-      ALTER TABLE name CHANGE field_name new_field_name FIELD_PROPERTY;
-     ALTER TABLE name AUTO_INCREMENT = 100;
+  ALTER TABLE name MODIFY field_name FIELD_PROPERTY;
+  ALTER TABLE name CHANGE field_name new_field_name FIELD_PROPERTY;
+  ALTER TABLE name AUTO_INCREMENT = 100;
   ```
 
   delete field: `ALTER TABLE table_name DROP field_name;`
@@ -65,8 +65,8 @@ CREATE TABLE [IF NOT EXISTS] `table_name` (
 ### 4.check table and tables
 
   ```sql
-      DESC[RIBE] [TABLE] table_name;
-      SHOW TABLES;
+  DESC[RIBE] [TABLE] table_name;
+  SHOW TABLES;
   ```
 
 ### 5.check create table
@@ -121,9 +121,9 @@ ALTER TABLE students ADD CONSTRAINT `FK_gradeid` FOREIGN KEY(`gradeid`) REFERENC
 ### 2.insert/update/delete delete record
 
 ```sql
-  INSERT INTO table_name VALUES (...,...,......)[,(...,...,......),(...,...,......),......];[^1]
-  UPDATE table_name SET field_name='...' WHERE condition;
-  DELETE FROM table_name WHERE condition;
+INSERT INTO table_name VALUES (...,...,......)[,(...,...,......),(...,...,......),......];[^1]
+UPDATE table_name SET field_name='...' WHERE condition;
+DELETE FROM table_name WHERE condition;
 ```
 
 # Query

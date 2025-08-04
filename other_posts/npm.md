@@ -13,8 +13,6 @@ vue -V报错:
 
 再检测: vue -V
 
-参考 <https://blog.csdn.net/cnoneo/article/details/100667098>
-
 // 常见错误
 
 npm ERR! code EBADPLATFORM
